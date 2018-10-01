@@ -1,7 +1,6 @@
 - [Arbitrater](https://github.com/tyro/arbitrater)
     - Kotlin based
     - Can "generate" null fields and/or use default fields
-    - Nested classes out of the box
 
 - [RandomBeans](https://github.com/benas/random-beans)
     - Java based
