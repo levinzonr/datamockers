@@ -1,4 +1,5 @@
 import com.infoedge.jrandomizer.Generator
+import com.tyro.oss.arbitrater.arbitraryInstance
 import com.tyro.oss.arbitrater.arbitrater
 import io.github.benas.randombeans.EnhancedRandomBuilder
 import io.github.benas.randombeans.api.EnhancedRandom
@@ -47,8 +48,17 @@ fun testArbitrater() {
             // override value
             .withValue("photo", "another url")
             .createInstance()
-
     println(personWithNulls)
+
+
+   val generatedByMe =  Person::class.arbitrater()
+           .useDefaultValues(false)
+           .apply { registerGenerator { Location::class.arbitrater().useDefaultValues(false).createInstance() } }
+           .apply { registerGenerator { "EasyString" } }
+           .createInstance()
+    println(generatedByMe)
+
+
 
 
 }
